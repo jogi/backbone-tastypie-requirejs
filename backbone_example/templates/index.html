@@ -1,0 +1,41 @@
+{% load mustache %}
+{% load straight_include %}
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <title>Django + Backbone.js</title>
+
+    <link rel="stylesheet" 
+          href="http://yui.yahooapis.com/3.2.0/build/cssreset/reset-min.css">
+    <link rel="stylesheet" href="/static/debug/index.css">
+
+    <script>
+      TWEET_API = "{% url api_dispatch_list api_name="v1" resource_name="tweet" %}";
+      {% if data %}
+      app = {loaded: true};
+      {% endif %}
+    </script>
+    <script data-main="app/config" src="/static/debug/require.js"></script>
+
+    <script type="text/html" id="tweetTemplate">
+      {% straight_include "tweetTemplate.mustache" %}
+    </script>
+
+    <script type="text/html" id="listApp">
+      {% straight_include "listApp.mustache" %}
+    </script>
+
+    <script type="text/html" id="detailApp">
+      {% straight_include "detailApp.mustache" %}
+    </script>
+  </head>
+
+  <body>
+    <div id="app">
+      {% if data %}
+      {% mustache "detailApp" data %}
+      {% endif %}
+    </div>
+  </body>
+</html>

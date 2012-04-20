@@ -81,9 +81,9 @@ More info at: http://icanhazjs.com
         }
     };
     
-    // Export the Underscore object for **Node.js**, with
+    // Export the ICanHaz object for **Node.js**, with
     // backwards-compatibility for the old `require()` API. If we're in
-    // the browser, add `_` as a global object via a string identifier,
+    // the browser, add `ich` as a global object via a string identifier,
     // for Closure Compiler "advanced" mode.
     if (typeof exports !== 'undefined') {
         if (typeof module !== 'undefined' && module.exports) {
@@ -106,4 +106,4 @@ More info at: http://icanhazjs.com
         }
     }
         
-}).call(this);
+})();

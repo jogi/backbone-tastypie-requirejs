@@ -12848,9 +12848,9 @@ More info at: http://icanhazjs.com
         }
     };
     
-    // Export the Underscore object for **Node.js**, with
+    // Export the ICanHaz object for **Node.js**, with
     // backwards-compatibility for the old `require()` API. If we're in
-    // the browser, add `_` as a global object via a string identifier,
+    // the browser, add `ich` as a global object via a string identifier,
     // for Closure Compiler "advanced" mode.
     if (typeof exports !== 'undefined') {
         if (typeof module !== 'undefined' && module.exports) {
@@ -12873,7 +12873,7 @@ More info at: http://icanhazjs.com
         }
     }
         
-}).call(this);
+})();
 
 define("icanhaz", function(){});
 
@@ -12891,41 +12891,6 @@ function($, _, Backbone, ich) {
   // Put application wide code here
 
   return {
-    // This is useful when developing if you don't want to use a
-    // build process every time you change a template.
-    //
-    // Delete if you are using a different template loading method.
-    fetchTemplate: function(path, done) {
-      var JST = window.JST = window.JST || {};
-      var def = new $.Deferred();
-
-      // Should be an instant synchronous way of getting the template, if it
-      // exists in the JST object.
-      if (JST[path]) {
-        if (_.isFunction(done)) {
-          done(JST[path]);
-        }
-
-        return def.resolve(JST[path]);
-      }
-
-      // Fetch it asynchronously if not available from JST 
-      $.get(path, function(contents) {
-        JST[path] = _.template(contents);
-
-        // Set the global JST cache and return the template
-        if (_.isFunction(done)) {
-          done(JST[path]);
-        }
-
-        // Resolve the template deferred
-        def.resolve(JST[path]);
-      }, "text");
-
-      // Ensure a normalized return value (Promise)
-      return def.promise();
-    },
-
     // Create a custom object with a nested Views object
     module: function(additionalProps) {
       return _.extend({ Views: {} }, additionalProps);
@@ -12994,10 +12959,6 @@ define('modules/tweet',[
 ],
 
 function(backtasty, Backbone, ich) {
-    console.log(backtasty);
-    console.log(Backbone);
-    console.log(ich);
-    console.log(_);
 
     // Create a new module
     var Tweet = backtasty.module("tweet");

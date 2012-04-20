@@ -3,7 +3,7 @@ require([
 
   // Libs
   "jquery",
-  "use!backbone",
+  "use!backbone_tastypie",
 
   // Modules
   "modules/example",

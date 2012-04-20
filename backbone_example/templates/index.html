@@ -8,7 +8,7 @@
 
     <link rel="stylesheet" 
           href="http://yui.yahooapis.com/3.2.0/build/cssreset/reset-min.css">
-    <link rel="stylesheet" href="/static/debug/index.css">
+    <link rel="stylesheet" href="/static/dist/release/index.css">
 
     <script>
       TWEET_API = "{% url api_dispatch_list api_name="v1" resource_name="tweet" %}";
@@ -16,7 +16,7 @@
       app = {loaded: true};
       {% endif %}
     </script>
-    <script data-main="app/config" src="/static/debug/require.js"></script>
+    <script data-main="app/config" src="/static/dist/debug/require.js"></script>
 
     <script type="text/html" id="tweetTemplate">
       {% straight_include "tweetTemplate.mustache" %}

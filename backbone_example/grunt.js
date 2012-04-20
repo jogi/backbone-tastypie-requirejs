@@ -8,7 +8,7 @@ module.exports = function(grunt) {
 
     // The clean task ensures all files are removed from the dist/ directory so
     // that no files linger from previous builds.
-    clean: ["dist/"],
+    clean: ["static/dist/"],
 
     // The lint task will run the build configuration and the application
     // JavaScript through JSHint and report any errors.  You can change the
@@ -16,7 +16,7 @@ module.exports = function(grunt) {
     // https://github.com/cowboy/grunt/blob/master/docs/task_lint.md
     lint: {
       files: [
-        "build/config.js", "app/**/*.js"
+        "build/config.js", "static/app/**/*.js"
       ]
     },
 
@@ -37,8 +37,8 @@ module.exports = function(grunt) {
     // The concat task depends on this file to exist, so if you decide to
     // remove this, ensure concat is updated accordingly.
     jst: {
-      "dist/debug/templates.js": [
-        "app/templates/**/*.html"
+      "static/dist/debug/templates.js": [
+        "static/app/templates/**/*.html"
       ]
     },
 
@@ -47,10 +47,10 @@ module.exports = function(grunt) {
     // dist/debug/require.js, because we want to only load one script file in
     // index.html.
     concat: {
-      "dist/debug/require.js": [
-        "assets/js/libs/almond.js",
+      "static/dist/debug/require.js": [
+        "static/assets/js/libs/almond.js",
         //"dist/debug/templates.js",
-        "dist/debug/require.js"
+        "static/dist/debug/require.js"
       ]
     },
 
@@ -59,15 +59,15 @@ module.exports = function(grunt) {
     // also minifies all the CSS as well.  This is named index.css, because we
     // only want to load one stylesheet in index.html.
     mincss: {
-      "dist/release/index.css": [
-        "assets/css/style.css"
+      "static/dist/release/index.css": [
+        "static/assets/css/style.css"
       ]
     },
 
     // Takes the built require.js file and minifies it for filesize benefits.
     min: {
-      "dist/release/require.js": [
-        "dist/debug/require.js"
+      "static/dist/release/require.js": [
+        "static/dist/debug/require.js"
       ]
     },
 
@@ -87,18 +87,19 @@ module.exports = function(grunt) {
     server: {
       debug: {
         folders: {
-          "app": "dist/debug",
-          "app/templates": "app/templates",
-          "assets/js/libs": "dist/debug"
+          "app": "static/dist/debug",
+          "app/templates": "static/app/templates",
+          "assets/js/libs": "static/dist/debug",
+          "assets/css": "static/dist/debug"
         }
       },
 
       release: {
         folders: {
-          "app": "dist/release",
+          "app": "static/dist/release",
           //"app/templates": "app/templates",
-          "assets/js/libs": "dist/release",
-          "assets/css": "dist/release"
+          "assets/js/libs": "static/dist/release",
+          "assets/css": "static/dist/release"
         }
       }
     },
@@ -107,10 +108,10 @@ module.exports = function(grunt) {
     // future other builders may be contributed as drop-in alternatives.
     requirejs: {
       // Include the main configuration file
-      mainConfigFile: "app/config.js",
+      mainConfigFile: "static/app/config.js",
 
       // Output file
-      out: "dist/debug/require.js",
+      out: "static/dist/debug/require.js",
 
       // Root application module
       name: "config",

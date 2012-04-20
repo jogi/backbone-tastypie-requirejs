@@ -13,6 +13,7 @@ require.config({
     underscore: "../assets/js/libs/underscore",
     backbone: "../assets/js/libs/backbone",
     backbone_tastypie: "../assets/js/libs/backbone-tastypie",
+    mustache: "../assets/js/libs/mustache",
     icanhaz: "../assets/js/libs/iCanHaz",
 
     // Shim Plugin
@@ -30,13 +31,17 @@ require.config({
       attach: "Backbone"
     },
 
+    icanhaz: {
+      deps: ["use!mustache"],
+      attach: "ich"
+    },
+
     underscore: {
       attach: "_"
     },
-    
-    icanhaz: {
-      deps: ["jquery"],
-      attach: "ich"
+
+    mustache: {
+      attach: "Mustache"
     }
 
   }

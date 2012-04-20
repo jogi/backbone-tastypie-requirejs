@@ -2,10 +2,11 @@ define([
   // Libs
   "jquery",
   "use!underscore",
-  "use!backbone"
+  "use!backbone_tastypie",
+  "use!icanhaz"
 ],
 
-function($, _, Backbone) {
+function($, _, Backbone, ich) {
   // Put application wide code here
 
   return {

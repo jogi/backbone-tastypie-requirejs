@@ -11,9 +11,6 @@ define([
 ],
 
 function(backtasty, Backbone, ich) {
-    console.log(backtasty);
-    console.log(Backbone);
-    console.log(ich);
 
     // Create a new module
     var Tweet = backtasty.module("tweet");

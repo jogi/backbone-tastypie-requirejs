@@ -16,8 +16,9 @@ Preferably in a virtualenv, run the following commands:
     ./manage.py runserver
     
 
-**This project uses grunt for building**. So go [grunt-bbb](https://github.com/backbone-boilerplate/grunt-bbb) for more info on how to do a build. Here's what I did:
+**This project uses grunt for building**. So go to [grunt-bbb](https://github.com/backbone-boilerplate/grunt-bbb) for more info on how to do a build. Here's what I did:
 
+    npm install -g grunt
     npm install -g bbb
     bbb debug
     bbb release

@@ -10,7 +10,7 @@ Running locally
 Preferably in a virtualenv, run the following commands:
 
     git clone https://jvashishtha@github.com/jvashishtha/backbone-tastypie-requirejs.git
-    cd ackbone-tastypie-requirejs/backbone_example
+    cd backbone-tastypie-requirejs/backbone_example
     pip install -r requirements.txt
     ./manage.py syncdb --noinput
     ./manage.py runserver

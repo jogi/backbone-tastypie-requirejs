@@ -1,7 +1,7 @@
 Django+Backbone.js+Require.js Example
 -----------------------
 
-This is an example application using Django, with the help of [django-tastypie](https://github.com/toastdriven/django-tastypie), [backbone.js](https://github.com/documentcloud/backbone) and [require.js](http://requirejs.org/). It is based on the awesome [django-backbone-example](https://github.com/joshbohde/django-backbone-example) by Josh Bohde. I have just taken his example and modified for the purpose of the demonstration.
+This is an example application using Django, with the help of [django-tastypie](https://github.com/toastdriven/django-tastypie), [backbone.js](https://github.com/documentcloud/backbone), [icanhaz.js](https://github.com/HenrikJoreteg/ICanHaz.js) and [require.js](http://requirejs.org/). It is based on the awesome [django-backbone-example](https://github.com/joshbohde/django-backbone-example) by Josh Bohde. I have just taken his example and modified for the purpose of the demonstration.
 
 
 Running locally
